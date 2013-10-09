@@ -1,0 +1,100 @@
+  
+  #####################Conflicto 1#################################
+  alu4171@exthost2:~/LPP/prct04$ git push -u origin desarrollo
+  To git@github.com:alu0100548488/prct04.git
+   ! [rejected]        desarrollo -> desarrollo (non-fast-forward)
+  error: failed to push some refs to 'git@github.com:alu0100548488/prct04.git'
+  To prevent you from losing history, non-fast-forward updates were rejected
+  Merge the remote changes before pushing again.  See the 'Note about
+  fast-forwards' section of 'git push --help' for details.
+   
+  Se nos presentó este error al intentar subir en la rama de desarrollo (git push -u origin desarrollo) una versión anterior a la que ya había trabajado el otro programador (la versión final), lo arreglamos utilizando la setencia git pull, para que el primer programador ponga su versión actualizada respecto a la última.
+
+############################Conflicto 2############################################
+  alu4171@exthost2:~/LPP/prct04$ vi prct04.rb
+  
+  Borramos todos el programa y luego ejecutamos lo siguiente:
+
+  alu4171@exthost2:~/LPP/prct04$ git add .
+  alu4171@exthost2:~/LPP/prct04$ git commit -m "No es el fin del programa"
+  [desarrollo 8bf767e] No es el fin del programa
+  Committer: MORALES PEREZ <alu4171@exthost2.(none)>
+  Your name and email address were configured automatically based
+  on your username and hostname. Please check that they are accurate.
+  You can suppress this message by setting them explicitly:
+
+      git config --global user.name "Your Name"
+      git config --global user.email you@example.com
+
+  If the identity used for this commit is wrong, you can fix it with:
+
+      git commit --amend --author='Your Name <you@example.com>'
+
+  2 files changed, 12 insertions(+), 55 deletions(-)
+  create mode 100644 conflictos.txt
+  rewrite prct04.rb (99%)
+  alu4171@exthost2:~/LPP/prct04$ git push -u origin desarrollo
+  Counting objects: 6, done.
+  Delta compression using up to 2 threads.
+  Compressing objects: 100% (3/3), done.
+  Writing objects: 100% (4/4), 757 bytes, done.
+  Total 4 (delta 0), reused 0 (delta 0)
+  To git@github.com:alu0100548488/prct04.git
+     4d06475..8bf767e  desarrollo -> desarrollo
+  Branch desarrollo set up to track remote branch desarrollo from origin.
+  alu4171@exthost2:~/LPP/prct04$ 
+
+
+  Esto trajo como consecuencia la perdida del resultado final.
+  Para recuperar el trabajo final borramos el último commit con el comando (git reset --hard HEAD~1) y nos recuperamos el resultado final:
+
+  alu4171@exthost2:~/LPP/prct04$ git reset --hard HEAD~1
+  HEAD is now at 4d06475 Fin de Programa
+
+  ############################Conflicto 3###################################
+
+  Fusionamos dos ramas sin querer y nos sale esto en el git log:
+
+
+    commit 019ef62bb552a49110205d5c18a87ad910937f7c
+  Author: MORALES PEREZ <alu4171@exthost2.(none)>
+  Date:   Wed Oct 9 08:03:39 2013 +0100
+
+      Fusion de ramas
+
+  commit 4d064757b2cb8875b2b9c71c6cefbec85a9cec2c
+  Author: Daniel Mateos Pelaez <alu4327@exthost2.(none)>
+  Date:   Wed Oct 9 07:04:47 2013 +0100
+
+      Fin de Programa
+
+  commit 846f41895e2e3da87c9bce9c47b7d964d38928be
+  Author: MORALES PEREZ <alu4171@exthost2.(none)>
+  Date:   Wed Oct 9 04:50:56 2013 +0100
+
+      Creando el programa2
+
+  commit 95128313478260425c7aad8f23bf0faebd9eaab4
+  Author: MATEOS PELAEZ <alu4327@exthost2.(none)>
+  Date:   Wed Oct 9 02:40:25 2013 +0100
+
+      prueba dani
+
+  commit 0e3cbd497b081263e0ec0b13f97a56577ee0acbb
+  Author: MORALES PEREZ <alu4171@exthost2.(none)>
+  Date:   Wed Oct 9 02:15:25 2013 +0100
+
+      Creando el programa1
+
+  commit 1f52362c4d6da54961d8df6895f5997a07df3a2a
+  Author: MORALES PEREZ <alu4171@exthost2.(none)>
+  Date:   Wed Oct 9 00:41:25 2013 +0100
+
+      Creación del directorio de la practica4
+
+  
+  Borramos el último commit con el comando "git reset --hard HEAD", nos da una salida correcta con la que enmedamos el error:
+
+  alu4171@exthost2:~/LPP/prct04$ git reset --hard HEAD~1
+  HEAD is now at 4d06475 Fin de Programa
+

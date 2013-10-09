@@ -26,3 +26,30 @@
   end
 
   a, b = read_matrices('datos.dat')
+  
+  #Tamaño matriz cuadrada
+  tam = a.length 
+
+puts "-----------Suma------------"
+#SUMA 	
+  s = Array.new
+  for k in (0...tam) do	
+	for x in (0...tam) do s[x] = a[k][x]+b[k][x] 
+	puts s[x]
+	end
+   end
+puts "------Multiplicacion--------"
+#MULTIPLICACION
+  z = Array.new
+  z = 0
+  for k in (0...tam) do
+	for x in (0...tam) do
+		for j in (0...tam) do 
+			z += a[k][j]*b[j][x]
+                end
+        puts z
+        z = 0
+	end
+  end
+
+

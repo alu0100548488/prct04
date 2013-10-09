@@ -1,0 +1,11 @@
+  
+
+  alu4171@exthost2:~/LPP/prct04$ git push -u origin desarrollo
+  To git@github.com:alu0100548488/prct04.git
+   ! [rejected]        desarrollo -> desarrollo (non-fast-forward)
+  error: failed to push some refs to 'git@github.com:alu0100548488/prct04.git'
+  To prevent you from losing history, non-fast-forward updates were rejected
+  Merge the remote changes before pushing again.  See the 'Note about
+  fast-forwards' section of 'git push --help' for details.
+   
+  Se nos presentó este error al intentar subir en la rama de desarrollo (git push -u origin desarrollo) una versión anterior a la que ya había trabajado el otro programador (la versión final), lo arreglamos utilizando la setencia git pull.

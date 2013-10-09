@@ -23,6 +23,6 @@
 
     [a, b]
     
-    puts a
-    puts b
   end
+
+  a, b = read_matrices('datos.dat')

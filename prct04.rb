@@ -51,5 +51,3 @@ puts "------Multiplicacion--------"
         z = 0
 	end
   end
-
-
